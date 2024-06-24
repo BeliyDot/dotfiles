@@ -1,0 +1,33 @@
+{
+    "workbench.colorCustomizations": {
+
+    
+        "[Default High Contrast]": {
+            "foreground": "#ffffff",
+            "menu.foreground": "#ffffff",
+            "contrastBorder": "#ffffff",
+            "contrastActiveBorder": "#646464"
+        }
+    },
+    "editor.fontFamily": "'Courier Prime Code', 'monospace', monospace",
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "clangd.path": "/home/BelDot/.config/VSCodium/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/17.0.3/clangd_17.0.3/bin/clangd",
+    "window.menuBarVisibility": "toggle",
+    "diffEditor.hideUnchangedRegions.enabled": true,
+    "C_Cpp_Runner.debuggerPath": "lldb",
+    "workbench.settings.applyToAllProfiles": [
+        "C_Cpp_Runner.debuggerPath"
+    ],
+    "zenMode.hideStatusBar": false,
+    "C_Cpp_Runner.cppStandard": "c++17",
+    "workbench.colorTheme": "Default High Contrast",
+    "workbench.preferredDarkColorTheme": "Default High Contrast",
+    "C_Cpp_Runner.includeSearch": [
+        "*",
+        "**/*",
+        "/usr/include/*"
+    ],
+    "workbench.preferredLightColorTheme": "Default High Contrast Light"
+}

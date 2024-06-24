@@ -1,0 +1,29 @@
+set previewer ~/.config/lf/preview 
+set cleaner ~/.config/lf/cleaner
+set shell bash
+set icons true
+
+map x cut
+map d delete
+map p
+map pp paste
+map po paste-override
+
+cmd paste-override &{{
+	set -f
+	mode=$(head -1 ~/.local/share/lf/files)
+	list=$(sed 1d ~/.local/share/lf/files)
+	set -- _ $list; shift
+	[ $# -gt 0 ] || exit
+	case $mode in
+		copy)
+			rsync -r "$@" ./
+			;;
+		move)
+			rsync -r --remove-source-files "$@" ./
+			;;
+	esac
+	lf -remote 'save\nmove\n'
+	lf -remote "send $id load"
+	lf -remote "send $id echo \"\033[0;32mpasted $# file(s)\033[0m\""
+}}

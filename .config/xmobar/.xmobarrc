@@ -1,0 +1,28 @@
+Config { overrideRedirect = True
+       , font = "Courier New Bold 11"
+       , bgColor  = "#000000"
+       , fgColor  = "#f8f8f2"
+       , commands = [ Run Memory ["--template", "Mem: <usedratio>%"] 10
+                    , Run Date "%a %d.%m.%Y | %H:%M" "date" 10
+                    , Run UnsafeXMonadLog
+		    , Run Alsa "default" "Master"
+                        [ "--template", "<volumestatus>"
+                        , "--suffix"  , "True"
+                        , "--"
+                        , "--on", ""
+                        ]
+		    , Run BatteryP ["BAT1"] [
+			"-t", "<acstatus>: <left>%",
+			"--", "-O", "AC", "-i", "Full", "-o", "Batt"
+] 100
+		    , Run Kbd [("us", "ENG"), ("ua", "UKR"), ("ru", "RUS")]
+		    , Run Wireless "" ["-t", "WiFi: <ssid>"] 10
+		    , Run Mpris2 "playerctld" 
+		    ["-t", "| Mus: <artist> - <title>",
+		     "-x", "", "-T", "60", "-E", "..."
+		    ] 10
+		    ]
+       , sepChar  = "%"
+       , alignSep = "}{"
+       , template = "%UnsafeXMonadLog% %mpris2% } %date% { %kbd% | %wi% | Vol: %alsa:default:Master% | %memory% | %battery% "
+       }
